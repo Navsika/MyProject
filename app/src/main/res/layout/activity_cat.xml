@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CatActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/toStore"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/money_cat_activity"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/circle_button"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/ic_shop"
+
+             />
+
+        <Button
+            android:id="@+id/toInventory"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/toStore"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/circle_button"
+            android:layout_marginTop="20dp"
+            android:drawableRight="@drawable/ic_inventory"
+
+            />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="674dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/room" />
+
+        <ImageView
+            android:id="@+id/cat"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="-2dp"
+            android:layout_marginBottom="54dp"
+            android:src="@drawable/cat_stand" />
+
+        <TextView
+            android:id="@+id/money_cat_activity"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/text_view_design"
+            android:drawableStart="@drawable/ic_money"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#A8A8A8"
+        app:fabCradleRoundedCornerRadius="25dp"
+        app:fabCradleMargin="10dp"
+        app:hideOnScroll="true"
+        >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_menu"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="20dp"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@color/bottom_item_background"
+            app:itemTextColor="@color/bottom_item_background"
+            />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

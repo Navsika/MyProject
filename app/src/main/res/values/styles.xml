@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+    <style name="RadioButtonStyle1" parent="Theme.AppCompat.Light">
+
+        <item name="colorAccent">#F44336</item>
+        <item name="android:textColorPrimary">#D5D5D5</item>
+    </style>
+    <style name="RadioButtonStyle2" parent="Theme.AppCompat.Light">
+
+        <item name="colorAccent">#FFC107</item>
+        <item name="android:textColorPrimary">#D5D5D5</item>
+    </style>
+    <style name="RadioButtonStyle3" parent="Theme.AppCompat.Light">
+
+        <item name="colorAccent">#3CDA42</item>
+        <item name="android:textColorPrimary">#D5D5D5</item>
+    </style>
+
+
+
+
+</resources>

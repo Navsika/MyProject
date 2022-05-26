@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:text="+"
+                android:textSize="40sp"
+                android:id="@+id/buttonplus"
+                />
+
+            <TextView
+                android:id="@+id/text_of_minute_in_dialog"
+                android:layout_width="176dp"
+                android:layout_height="74dp"
+                android:layout_toRightOf="@+id/buttonplus"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+
+                />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:text="-"
+                android:textSize="40sp"
+                android:id="@+id/buttonminus"
+                android:layout_alignParentEnd="true"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/set"
+                android:layout_below="@+id/buttonplus"
+                android:layout_centerHorizontal="true"
+                android:text="Set"
+                />
+
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

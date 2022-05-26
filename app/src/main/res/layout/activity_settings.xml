@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textofsettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Settings"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/money_settings_activity"
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="60dp"
+                android:background="@drawable/text_view_design"
+                android:drawableStart="@drawable/ic_money"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+            <TextView
+                android:id="@+id/textofdlitelnost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textofsettings"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Длительность"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textofdlitelnost"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card1"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:cardCornerRadius="15dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#DED4F1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="Длительность томата"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/setting_text_of_work_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="30dp"
+                            android:text="25"
+                            android:textColor="@color/black"
+                            android:textSize="35sp" />
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="15dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#DED4F1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="Длительность короткого отдыха"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/setting_text_of_short_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="30dp"
+                            android:textColor="@color/black"
+                            android:textSize="35sp"
+                            android:text="5"/>
+
+
+                    </RelativeLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/linear"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Другие настройки"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:id="@+id/othersettings"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/othersettings"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="300dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#B5A8CD">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/button1"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/circle_button"
+                            android:backgroundTint="#673AB7"
+                            app:cornerRadius="23dp"
+                            app:icon="@drawable/ic_check"
+                            app:iconGravity="top"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+
+                            android:layout_marginLeft="68dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_toRightOf="@+id/button1"
+                            android:backgroundTint="#673AB7"
+                            app:cornerRadius="23dp"
+                            android:background="@drawable/circle_button"
+                            app:icon="@drawable/ic_close"
+                            app:iconGravity="top"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/button1"
+                            android:layout_centerHorizontal="true"
+                            android:text="Ограничение на 9 задач"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="10dp"/>
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#A8A8A8"
+        app:fabCradleRoundedCornerRadius="25dp"
+        app:fabCradleMargin="10dp"
+        app:hideOnScroll="true"
+        >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_menu"
+            android:background="@android:color/transparent"
+            android:layout_marginRight="20dp"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@color/bottom_item_background"
+            app:itemTextColor="@color/bottom_item_background"
+            />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
