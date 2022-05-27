@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.project.Adapter.ShopAdapter;
 import com.example.project.Model.CatModel;
 import com.example.project.Model.MoneyClass;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -43,7 +44,7 @@ public class CatActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     private RecyclerView shopRecycler;
     TextView moneyCat;
-    Dialog dialog, dialog2;
+    Dialog dialog, dialog2, dialog3;
     ImageView catImage;
     EditText textCatName;
     Button toStore, toInventory;
@@ -55,6 +56,7 @@ public class CatActivity extends AppCompatActivity {
     private int full, happy;
 
     RecyclerView.LayoutManager layoutManager;
+    RecyclerView.Adapter shopAdapter;
 
     String[] productNames = {"Тайяки", "Сэндвич с беконом и яйцом", "Роллы с лососем"};
     String[] descriptionProduct = {"+ 5 к сытости", "+ 10 к сытости", "+ 15 к сытости"};
@@ -74,21 +76,17 @@ public class CatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog2.setContentView(R.layout.shop_layout);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.rgb(179, 160, 232)));
                 shopRecycler = dialog2.findViewById(R.id.shop_recycler);
                 layoutManager = new LinearLayoutManager(getApplicationContext());
                 shopRecycler.setLayoutManager(layoutManager);
+                shopAdapter = new ShopAdapter(getApplicationContext(), productNames, descriptionProduct, priceProduct, imagesProduct);
+                shopRecycler.setAdapter(shopAdapter);
+
 
 
 
                 Button back = dialog2.findViewById(R.id.back_from_shop);
-
-
-
-
-
-
-
                 back.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -96,21 +94,19 @@ public class CatActivity extends AppCompatActivity {
                     }
                 });
 
-
-
-
-
-
                 dialog2.show();
 
             }
         });
 
 
-
-
-
         toInventory = findViewById(R.id.toInventory);
+        toInventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog3.setContentView(R.layout.shop_layout);
+            }
+        });
 
 
 

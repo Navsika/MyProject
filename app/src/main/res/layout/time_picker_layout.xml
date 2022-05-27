@@ -15,13 +15,13 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonplus"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:text="+"
                 android:textSize="40sp"
-                android:id="@+id/buttonplus"
-                />
+               android:textColor="@color/orange"/>
 
             <TextView
                 android:id="@+id/text_of_minute_in_dialog"
@@ -35,14 +35,14 @@
                 />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonminus"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_alignParentEnd="true"
                 android:text="-"
                 android:textSize="40sp"
-                android:id="@+id/buttonminus"
-                android:layout_alignParentEnd="true"
-                />
+                android:textColor="@color/orange"/>
 
             <Button
                 android:layout_width="wrap_content"
@@ -51,6 +51,8 @@
                 android:layout_below="@+id/buttonplus"
                 android:layout_centerHorizontal="true"
                 android:text="Set"
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"
                 />
 
 

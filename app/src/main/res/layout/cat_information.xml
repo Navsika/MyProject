@@ -79,13 +79,15 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
+                android:id="@+id/okay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/okay"
                 android:layout_below="@+id/progressBar_full"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
                 android:text="OKAY"
-                android:layout_marginTop="10dp"/>
+                android:backgroundTint="@color/orange"
+                android:textColor="@color/black"/>
 
 
 

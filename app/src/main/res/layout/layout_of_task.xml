@@ -19,7 +19,7 @@
             android:layout_width="30dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:buttonTint="@color/purple_500"
+            android:buttonTint="@color/orange"
             android:paddingStart="8dp" />
 
         <TextView
@@ -27,26 +27,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="IS DOING" />
+            android:text="IS DOING"
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/text_task"
-            android:layout_width="240dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="30dp"
             android:text="This is a sample of task"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/text_description"
-            android:layout_width="260dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_task"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="2dp"
             android:text="This is a sample of description"
-            android:textSize="13sp" />
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/start_timer"
@@ -55,7 +57,9 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="@drawable/circle_button"
-            android:drawableTop="@drawable/ic_play" />
+            android:drawableTop="@drawable/ic_play"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/orange" />
 
 
 

@@ -12,10 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:text="Timer"
+        android:layout_marginTop="30dp"
+        android:text="Таймер"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="30sp"
 
         />
 
@@ -24,8 +24,8 @@
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
         android:background="@drawable/text_view_design"
         android:drawableStart="@drawable/ic_money"
         android:gravity="center"
@@ -35,7 +35,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_below="@+id/text_timer"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="60dp"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         app:cardElevation="4dp"
@@ -48,7 +48,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#B7A7FF"
+            android:background="@color/light_orange"
             >
 
             <CheckBox
@@ -78,7 +78,7 @@
     <FrameLayout
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="190dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/timer">
 
@@ -113,16 +113,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/timer"
         android:layout_centerHorizontal="true"
-        android:text="START"
-        android:visibility="visible" />
+        android:text="НАЧАТЬ"
+        android:visibility="visible"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/black"/>
     <Button
         android:id="@+id/start_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/timer"
         android:layout_centerHorizontal="true"
-        android:text="START REST"
-        android:visibility="invisible" />
+        android:text="НАЧАТЬ ОТДЫХ"
+        android:visibility="invisible"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/cancel_rest"
@@ -130,8 +134,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/timer"
         android:layout_centerHorizontal="true"
-        android:text="CANCEL REST"
-        android:visibility="invisible" />
+        android:text="ОСТАНОВИТЬ ОТДЫХ"
+        android:visibility="invisible"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/black"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -139,8 +145,10 @@
         android:layout_below="@+id/start_pause"
         android:layout_centerHorizontal="true"
         android:id="@+id/stop_btn"
-        android:text="STOP"
-        android:visibility="invisible"/>
+        android:text="ЗАВЕРШИТЬ"
+        android:visibility="invisible"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/black"/>
 
 
 

@@ -35,8 +35,8 @@ public class TimerActivity extends AppCompatActivity {
 
 
 
-   private static final long START_TIME_IN_MILLIS = isWorkTime * 60000L;
-    private static final long SHORT_REST_TIME_IN_MILLIS = isRest * 60000L;
+   private static  long START_TIME_IN_MILLIS;
+    private static  long SHORT_REST_TIME_IN_MILLIS;
 
     private TextView timerText, taskTimer, moneyTimer;
     private Button buttonToStartPause, buttonToStop, buttonToCancel, buttonStartRest;
@@ -45,8 +45,8 @@ public class TimerActivity extends AppCompatActivity {
 
     private boolean timerRunning;
     private boolean isWorkTimer;
-    private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
-    private long mShortTimeLeftInMillis = SHORT_REST_TIME_IN_MILLIS;
+    private long mTimeLeftInMillis;
+    private long mShortTimeLeftInMillis;
     private long mTimeInPause;
 
     private ProgressBar timerProgress;
@@ -84,6 +84,11 @@ public class TimerActivity extends AppCompatActivity {
         buttonToStop = findViewById(R.id.stop_btn);
         buttonToCancel = findViewById(R.id.cancel_rest);
         buttonStartRest = findViewById(R.id.start_rest);
+
+         START_TIME_IN_MILLIS = sp1.getInt(KEY_LONG_TIME, 25)*60000L;
+         SHORT_REST_TIME_IN_MILLIS = sp1.getInt(KEY_SHORT_TIME, 5)*60000L;
+         mTimeLeftInMillis = START_TIME_IN_MILLIS;
+         mShortTimeLeftInMillis = SHORT_REST_TIME_IN_MILLIS;
 
 
 
@@ -153,7 +158,7 @@ public class TimerActivity extends AppCompatActivity {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     mTimeLeftInMillis = millisUntilFinished;
-                    updateCountDownText();
+                    updateCountDownText(mTimeLeftInMillis);
                     if (progressStatus < timerProgress.getMax()) {
                         progressStatus++;
                         timerProgress.setProgress(progressStatus);
@@ -175,12 +180,13 @@ public class TimerActivity extends AppCompatActivity {
                     progressStatus=0;
                     timerProgress.setProgress(progressStatus);
                     buttonToStartPause.setVisibility(View.INVISIBLE);
+                    mTimeLeftInMillis = START_TIME_IN_MILLIS;
                 }
             }.start();
             isWorkTimer = true;
 
             timerRunning = true;
-            buttonToStartPause.setText("PAUSE");
+            buttonToStartPause.setText("ПАУЗА");
             buttonToStop.setVisibility(View.INVISIBLE);
             buttonStartRest.setVisibility(View.INVISIBLE);
         }
@@ -192,7 +198,7 @@ public class TimerActivity extends AppCompatActivity {
             timerRunning = false;
             mTimeInPause = mTimeLeftInMillis;
             buttonToStartPause.setVisibility(View.VISIBLE);
-            buttonToStartPause.setText("RESUME");
+            buttonToStartPause.setText("ПРОДОЛЖИТЬ");
             buttonToStop.setVisibility(View.VISIBLE);
             buttonStartRest.setVisibility(View.INVISIBLE);
         }
@@ -201,18 +207,18 @@ public class TimerActivity extends AppCompatActivity {
             isWorkTimer = true;
             timerRunning = false;
             mTimeLeftInMillis = START_TIME_IN_MILLIS;
-            updateCountDownText();
+            updateCountDownText(mTimeLeftInMillis);
             buttonToStop.setVisibility(View.INVISIBLE);
-            buttonToStartPause.setText("START");
+            buttonToStartPause.setText("СТАРТ");
             buttonToStartPause.setVisibility(View.VISIBLE);
             buttonStartRest.setVisibility(View.INVISIBLE);
 
         }
 
 
-        private void updateCountDownText () {
-            int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
-            int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
+        private void updateCountDownText (long time) {
+            int minutes = (int) (time / 1000) / 60;
+            int seconds = (int) (time / 1000) % 60;
 
 
             String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
@@ -220,14 +226,14 @@ public class TimerActivity extends AppCompatActivity {
         }
 
 
-        private void updateCountDownTextRest() {
+    /*    private void updateCountDownTextRest() {
             int minutes = (int) (mShortTimeLeftInMillis / 1000) / 60;
             int seconds = (int) (mShortTimeLeftInMillis / 1000) % 60;
 
 
             String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds);
             timerText.setText(timeLeftFormatted);
-        }
+        } */
 
 
         private void restTimer () {
@@ -235,8 +241,7 @@ public class TimerActivity extends AppCompatActivity {
                 @Override
                 public void onTick(long millisUntilFinished) {
                     mShortTimeLeftInMillis = millisUntilFinished;
-                    updateCountDownTextRest();
-                    timerProgress.setMax((int) (mShortTimeLeftInMillis / 1000));
+                    updateCountDownText(mShortTimeLeftInMillis);
                      if (progressStatus<timerProgress.getMax()){
                        progressStatus++;
                        timerProgress.setProgress(progressStatus);
@@ -247,10 +252,13 @@ public class TimerActivity extends AppCompatActivity {
                 public void onFinish() {
                     isWorkTimer = true;
                     timerRunning = false;
-                    buttonToStartPause.setText("START");
+                    buttonToStartPause.setText("СТАРТ");
                     buttonToStartPause.setVisibility(View.VISIBLE);
                     buttonToCancel.setVisibility(View.INVISIBLE);
                     buttonStartRest.setVisibility(View.INVISIBLE);
+                    progressStatus=0;
+                    timerProgress.setProgress(progressStatus);
+                    mShortTimeLeftInMillis = SHORT_REST_TIME_IN_MILLIS;
                 }
             }.start();
 
@@ -263,20 +271,22 @@ public class TimerActivity extends AppCompatActivity {
             buttonStartRest.setVisibility(View.INVISIBLE);
 
 
+
+
         }
 
         public void stopRestTimer () {
             timerRunning = false;
             isWorkTimer = true;
             mTimeLeftInMillis = START_TIME_IN_MILLIS;
-            updateCountDownText();
-
             mShortTimeLeftInMillis = SHORT_REST_TIME_IN_MILLIS;
+            updateCountDownText(mTimeLeftInMillis);
             buttonToStop.setVisibility(View.INVISIBLE);
-            buttonToStartPause.setText("START");
+            buttonToStartPause.setText("СТАРТ");
             buttonToCancel.setVisibility(View.INVISIBLE);
             buttonToStartPause.setVisibility(View.VISIBLE);
             buttonStartRest.setVisibility(View.INVISIBLE);
+            mCountDownTimer.cancel();
         }
 
 

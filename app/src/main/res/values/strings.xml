@@ -2,4 +2,7 @@
     <string name="app_name">Project</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="kanban"> Каждая задача проходит через стандартизированные этапы проекта, так что сразу можно отслеживать, что происходит. </string>
+    <string name="one_three_five"> Задачи делятся на категории.  Выберите одну важную задачу, три второстепенных и пять относительно неважных дел. </string>
+    <string name="pomodoro"> Заводите таймер на 25 минут, приступаете к работе, а когда время заканчивается, отправляетесь отдыхать на 5 минут.</string>
 </resources>

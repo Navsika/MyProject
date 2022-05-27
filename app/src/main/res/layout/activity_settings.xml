@@ -20,20 +20,19 @@
                 android:id="@+id/textofsettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Settings"
-                android:textSize="20sp"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="30dp"
+                android:text="Настройки"
                 android:textColor="@color/black"
-                />
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/money_settings_activity"
                 android:layout_width="80dp"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
                 android:background="@drawable/text_view_design"
                 android:drawableStart="@drawable/ic_money"
                 android:gravity="center"
@@ -64,12 +63,13 @@
                     android:id="@+id/card1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    app:cardCornerRadius="15dp">
+                    app:cardCornerRadius="15dp"
+                    android:backgroundTint="@color/light_orange">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#DED4F1">
+                        android:background="@color/light_orange">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#DED4F1">
+                        android:background="@color/light_orange">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -165,7 +165,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#B5A8CD">
+                        android:background="@color/other_orange">
 
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/button1"
@@ -174,10 +174,11 @@
                             android:layout_marginLeft="60dp"
                             android:layout_marginTop="15dp"
                             android:background="@drawable/circle_button"
-                            android:backgroundTint="#673AB7"
+                            android:backgroundTint="@color/orange"
                             app:cornerRadius="23dp"
                             app:icon="@drawable/ic_check"
-                            app:iconGravity="top"/>
+                            app:iconGravity="top"
+                            app:backgroundTint="#CF5A1C"/>
 
                         <com.google.android.material.button.MaterialButton
                             android:layout_width="50dp"
@@ -186,11 +187,12 @@
                             android:layout_marginLeft="68dp"
                             android:layout_marginTop="15dp"
                             android:layout_toRightOf="@+id/button1"
+                            android:background="@drawable/circle_button"
                             android:backgroundTint="#673AB7"
                             app:cornerRadius="23dp"
-                            android:background="@drawable/circle_button"
                             app:icon="@drawable/ic_close"
-                            app:iconGravity="top"/>
+                            app:iconGravity="top"
+                            app:backgroundTint="#CF5A1C"/>
 
                         <TextView
                             android:layout_width="wrap_content"

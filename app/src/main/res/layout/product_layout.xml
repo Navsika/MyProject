@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp">
 
-    <ImageView
-        android:id="@+id/image_of_product"
-        android:layout_width="130dp"
-        android:layout_height="140dp"
-        android:padding="10dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        android:layout_marginTop="10dp"/>
+        <ImageView
+            android:id="@+id/image_of_product"
+            android:layout_width="130dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp" />
 
     <TextView
+        android:id="@+id/text_of_product"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/text_of_product"
-        android:layout_toRightOf="@+id/image_of_product"
         android:layout_marginLeft="10dp"
-        android:textSize="15sp"
-        android:text="This is a text"
         android:layout_marginTop="10dp"
-        />
+        android:layout_toRightOf="@+id/image_of_product"
+        android:text="This is a text"
+        android:textSize="15sp"
+        android:textColor="@color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,6 +42,7 @@
         android:layout_marginTop="10dp"
         android:text="This is a description"
         android:layout_toRightOf="@+id/image_of_product"
+        android:textColor="@color/black"
         />
 
     <TextView
@@ -45,19 +55,25 @@
         android:layout_marginTop="10dp"
         android:text="This is a price"
         android:layout_toRightOf="@+id/image_of_product"
+        android:textColor="@color/black"
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/price_of_product"
-        android:layout_toRightOf="@+id/image_of_product"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="КУПИТЬ"/>
+        <Button
+            android:id="@+id/buy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/price_of_product"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/image_of_product"
+            android:text="КУПИТЬ"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/orange"/>
+
+    </RelativeLayout>
 
 
 
 
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
