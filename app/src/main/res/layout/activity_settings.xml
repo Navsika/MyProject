@@ -24,7 +24,8 @@
                 android:layout_marginTop="30dp"
                 android:text="Настройки"
                 android:textColor="@color/black"
-                android:textSize="30sp" />
+                android:textSize="32sp"
+                android:textStyle="bold"  />
 
             <TextView
                 android:id="@+id/money_settings_activity"
@@ -175,10 +176,10 @@
                             android:layout_marginTop="15dp"
                             android:background="@drawable/circle_button"
                             android:backgroundTint="@color/orange"
+                            app:backgroundTint="#CF5A1C"
                             app:cornerRadius="23dp"
                             app:icon="@drawable/ic_check"
-                            app:iconGravity="top"
-                            app:backgroundTint="#CF5A1C"/>
+                            app:iconGravity="top" />
 
                         <com.google.android.material.button.MaterialButton
                             android:layout_width="50dp"

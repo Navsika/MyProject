@@ -59,7 +59,9 @@
             android:background="@drawable/circle_button"
             android:drawableTop="@drawable/ic_play"
             android:textColor="@color/black"
-            app:backgroundTint="@color/orange" />
+            app:backgroundTint="@color/orange"
+
+            />
 
 
 

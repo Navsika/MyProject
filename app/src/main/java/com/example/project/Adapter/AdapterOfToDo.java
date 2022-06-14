@@ -1,5 +1,6 @@
 package com.example.project.Adapter;
 
+import static com.example.project.TimerActivity.DESCRIPTION_TEXT;
 import static com.example.project.TimerActivity.TASK_TEXT;
 
 import android.content.ContentValues;
@@ -118,6 +119,7 @@ public class AdapterOfToDo extends RecyclerView.Adapter<AdapterOfToDo.ViewHolder
             public void onClick(View v) {
                 Intent intent = new Intent(activity, TimerActivity.class);
                 intent.putExtra(TASK_TEXT, item.getTask());
+              //  intent.putExtra(DESCRIPTION_TEXT, item.getDescription());
                 activity.startActivity(intent);
 
             }

@@ -23,7 +23,8 @@
             android:layout_marginTop="30dp"
             android:text="О приложении"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="32sp"
+            android:textStyle="bold"  />
 
         <TextView
             android:id="@+id/money_about_activity"
@@ -67,18 +68,24 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Метод Канбан"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     android:textColor="@color/black"
+                    android:id="@+id/metod_kanban"
+                    android:fontFamily="@font/modern_rus"
+                    android:layout_marginTop="20dp"
                     />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/kanban"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
                     android:layout_marginTop="10dp"
+                    android:id="@+id/kanban"
+                    android:fontFamily="@font/modern_rus"
                     />
 
 
@@ -99,10 +106,15 @@
             app:cardCornerRadius="50dp"
             app:cardElevation="50dp">
 
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -116,20 +128,32 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Метод Pomodoro"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"/>
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/metod_pomodoro"
+                    android:fontFamily="@font/modern_rus"
+                    android:layout_marginTop="20dp"
+
+                    />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/pomodoro"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/pomodoro"
+                    android:fontFamily="@font/modern_rus"
+                    android:layout_gravity="center"
+                    />
+
+
 
 
             </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
         </androidx.cardview.widget.CardView>
 
@@ -165,17 +189,27 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Метод 1-3-5"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"/>
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:id="@+id/metod_1_3_5"
+                    android:fontFamily="@font/modern_rus"
+                    android:layout_marginTop="20dp"
+
+                    />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/one_three_five"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textColor="@color/black"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/modern_rus"
+                    android:layout_gravity="center"
+
+                    android:id="@+id/m135"
+                    />
 
 
             </LinearLayout>

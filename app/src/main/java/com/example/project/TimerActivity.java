@@ -32,13 +32,14 @@ public class TimerActivity extends AppCompatActivity {
 
     //Intent с задачей
     public final static String TASK_TEXT = "task text";
+    public final static String DESCRIPTION_TEXT = "task text";
 
 
 
    private static  long START_TIME_IN_MILLIS;
     private static  long SHORT_REST_TIME_IN_MILLIS;
 
-    private TextView timerText, taskTimer, moneyTimer;
+    private TextView timerText, taskTimer, moneyTimer, descriptionText;
     private Button buttonToStartPause, buttonToStop, buttonToCancel, buttonStartRest;
 
     private CountDownTimer mCountDownTimer;
@@ -69,13 +70,17 @@ public class TimerActivity extends AppCompatActivity {
 
 
         taskTimer = findViewById(R.id.ito_prosto_text);
+        descriptionText = findViewById(R.id.description_text);
+
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if(b!=null)
         {
             taskTimer.setText(b.getString(TASK_TEXT));
+          //  descriptionText.setText(b.getString(DESCRIPTION_TEXT));
+
         } else {
-            taskTimer.setText("Хуета");
+            taskTimer.setText("");
         }
 
 

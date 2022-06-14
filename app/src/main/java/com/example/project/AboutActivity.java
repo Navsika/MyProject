@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import com.example.project.Model.MoneyClass;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -22,11 +21,24 @@ public class AboutActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     TextView moneyAbout;
+    TextView kanban, aboutKanaban, pomodoro, aboutPomodoro, m135, about135;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
+
+
+        kanban = findViewById(R.id.metod_kanban);
+        pomodoro = findViewById(R.id.metod_pomodoro);
+        m135 = findViewById(R.id.metod_1_3_5);
+        aboutKanaban = findViewById(R.id.kanban);
+        aboutPomodoro = findViewById(R.id.pomodoro);
+        about135 = findViewById(R.id.m135);
+
+
+
 
 
         sp = getSharedPreferences(SHARED_PREF_MONEY, Context.MODE_PRIVATE);

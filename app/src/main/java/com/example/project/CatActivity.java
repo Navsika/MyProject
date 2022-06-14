@@ -1,5 +1,7 @@
 package com.example.project;
 
+import static com.example.project.R.color.light_orange;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -76,7 +78,7 @@ public class CatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog2.setContentView(R.layout.shop_layout);
-                dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(Color.rgb(179, 160, 232)));
+                dialog2.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(light_orange)));
                 shopRecycler = dialog2.findViewById(R.id.shop_recycler);
                 layoutManager = new LinearLayoutManager(getApplicationContext());
                 shopRecycler.setLayoutManager(layoutManager);
