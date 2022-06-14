@@ -27,6 +27,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements DialogCloseListener{
@@ -42,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     private List<ModelOfToDo> tasksList;
 
-    private CatModel cat;
 
     BottomNavigationView bottomNavigationView;
     TextView moneyMain;
@@ -58,12 +58,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         sp = getSharedPreferences(SHARED_PREF_MONEY, Context.MODE_PRIVATE);
         moneyMain = findViewById(R.id.money_main_activity);
         moneyMain.setText(String.valueOf(sp.getInt(KEY_MONEY, 0)));
-        SharedPreferences.Editor editor = sp.edit();
 
-        coin1 = sp.getInt(KEY_MONEY, 0);
-        coin1+=coin;
-
-        editor.putInt(KEY_MONEY, coin1);
 
 
         bottomNavigationView = findViewById(R.id.bottomNavigation);
@@ -101,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         tasksRecycler = findViewById(R.id.tasksRecyclerView);
         tasksRecycler.setLayoutManager(new LinearLayoutManager(this));
-        tasksAdapter = new AdapterOfToDo(db, MainActivity.this ,getApplicationContext());
+        tasksAdapter = new AdapterOfToDo(db, MainActivity.this ,getApplicationContext(),tasksRecycler);
         tasksRecycler.setAdapter(tasksAdapter);
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(tasksAdapter));
@@ -110,6 +105,16 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         fab = findViewById(R.id.fab);
 
         tasksList = db.getAllTasks();
+
+
+
+        Collections.sort(tasksList, new Comparator<ModelOfToDo>() {
+            @Override
+            public int compare(ModelOfToDo o1, ModelOfToDo o2) {
+
+                return o1.getStage().compareTo(o2.getStage());
+            }
+        });
         Collections.reverse(tasksList);
 
         tasksAdapter.setTasks(tasksList);

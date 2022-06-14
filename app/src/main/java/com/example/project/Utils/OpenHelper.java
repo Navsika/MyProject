@@ -70,7 +70,7 @@ public class OpenHelper extends SQLiteOpenHelper {
                         task.setDescription(cursor.getString(cursor.getColumnIndex(DESCRIPTION)));
                         task.setStage(cursor.getString(cursor.getColumnIndex(STAGE)));
                         task.setStatus(cursor.getInt(cursor.getColumnIndex(STATUS)));
-                        task.setStatus(cursor.getInt(cursor.getColumnIndex(DONE)));
+                        task.setDone(cursor.getInt(cursor.getColumnIndex(DONE)));
                         taskList.add(task);
                     }
                     while (cursor.moveToNext());

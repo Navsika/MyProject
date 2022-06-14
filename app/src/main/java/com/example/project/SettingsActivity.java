@@ -59,8 +59,8 @@ public class SettingsActivity extends AppCompatActivity {
         textOfWorkTime = findViewById(R.id.setting_text_of_work_time);
         textOfRestTime = findViewById(R.id.setting_text_of_short_time);
 
-        textOfWorkTime.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 0)));
-        textOfRestTime.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 0)));
+        textOfWorkTime.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 25)));
+        textOfRestTime.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 5)));
 
         card1 = findViewById(R.id.card1);
         card2 = findViewById(R.id.card2);
@@ -120,7 +120,7 @@ public class SettingsActivity extends AppCompatActivity {
         TextView textOfWorkTimeInDialog = dialog.findViewById(R.id.text_of_minute_in_dialog);
         Button buttonSet = dialog.findViewById(R.id.set);
         workTime = Integer.valueOf(textOfWorkTime.getText().toString());
-        textOfWorkTimeInDialog.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 0)));
+        textOfWorkTimeInDialog.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 25)));
 
         buttonPlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,8 +129,8 @@ public class SettingsActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp1.edit();
                 editor.putInt(KEY_LONG_TIME, workTime);
                 editor.apply();
-                textOfWorkTimeInDialog.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 0)));
-                isWorkTime = sp1.getInt(KEY_LONG_TIME, 0);
+                textOfWorkTimeInDialog.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 25)));
+                isWorkTime = sp1.getInt(KEY_LONG_TIME, 25);
             }
         });
 
@@ -142,8 +142,8 @@ public class SettingsActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sp1.edit();
                     editor.putInt(KEY_LONG_TIME, workTime);
                     editor.apply();
-                    textOfWorkTimeInDialog.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 0)));
-                    isWorkTime = sp1.getInt(KEY_LONG_TIME, 0);
+                    textOfWorkTimeInDialog.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 25)));
+                    isWorkTime = sp1.getInt(KEY_LONG_TIME, 25);
                 }else{
                     Toast.makeText(getApplicationContext(), "Время введено некорректно. Введите еще раз", Toast.LENGTH_SHORT).show();
                 }
@@ -153,7 +153,7 @@ public class SettingsActivity extends AppCompatActivity {
         buttonSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textOfWorkTime.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 0)));
+                textOfWorkTime.setText(String.valueOf(sp1.getInt(KEY_LONG_TIME, 25)));
                 dialog.dismiss();
             }
         });
@@ -169,7 +169,7 @@ public class SettingsActivity extends AppCompatActivity {
         TextView textOfShortRestInDialog = dialog.findViewById(R.id.text_of_minute_in_dialog);
         Button buttonSet = dialog.findViewById(R.id.set);
         shortRestTime = Integer.valueOf(textOfRestTime.getText().toString());
-        textOfShortRestInDialog.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 0)));
+        textOfShortRestInDialog.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 5)));
 
 
         buttonPlus.setOnClickListener(new View.OnClickListener() {
@@ -179,8 +179,8 @@ public class SettingsActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp1.edit();
                 editor.putInt(KEY_SHORT_TIME, shortRestTime);
                 editor.apply();
-                textOfShortRestInDialog.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 0)));
-                isRest = sp1.getInt(KEY_SHORT_TIME, 0);
+                textOfShortRestInDialog.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 5)));
+                isRest = sp1.getInt(KEY_SHORT_TIME, 5);
             }
         });
 
@@ -192,8 +192,8 @@ public class SettingsActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sp1.edit();
                     editor.putInt(KEY_SHORT_TIME, shortRestTime);
                     editor.apply();
-                    textOfShortRestInDialog.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 0)));
-                    isRest = sp1.getInt(KEY_SHORT_TIME, 0);
+                    textOfShortRestInDialog.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 5)));
+                    isRest = sp1.getInt(KEY_SHORT_TIME, 5);
                 }else{
                     Toast.makeText(getApplicationContext(), "Время введено некорректно. Введите еще раз", Toast.LENGTH_SHORT).show();
                 }
@@ -203,7 +203,7 @@ public class SettingsActivity extends AppCompatActivity {
         buttonSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textOfRestTime.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 0)));
+                textOfRestTime.setText(String.valueOf(sp1.getInt(KEY_SHORT_TIME, 5)));
                 dialog.dismiss();
             }
         });

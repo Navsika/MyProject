@@ -67,13 +67,15 @@ public class TimerActivity extends AppCompatActivity {
 
 
 
-        Intent intent = getIntent();
+
         taskTimer = findViewById(R.id.ito_prosto_text);
+        Intent intent = getIntent();
         Bundle b = intent.getExtras();
         if(b!=null)
         {
-            String j =(String) b.get(TASK_TEXT);
-            taskTimer.setText(j);
+            taskTimer.setText(b.getString(TASK_TEXT));
+        } else {
+            taskTimer.setText("Хуета");
         }
 
 

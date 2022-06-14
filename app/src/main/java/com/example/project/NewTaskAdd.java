@@ -24,7 +24,7 @@ import com.example.project.Utils.OpenHelper;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class NewTaskAdd extends BottomSheetDialogFragment {
-    public static final String TAG = "ActionBottomDialog";
+    public static final String TAG = "BottomDialog";
     private EditText newTaskText, newDescriptionText;
     private Button newTaskSaveButton;
     private RadioGroup groupOfStages, groupOfStatus;
@@ -104,35 +104,11 @@ public class NewTaskAdd extends BottomSheetDialogFragment {
                     break;
 
             }
-            assert task != null;
-            //if(task.length()>0)
-            //    newTaskSaveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
         }
 
         db = new OpenHelper(getActivity());
         db.openDatabase();
 
-        newTaskText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if((s.toString().equals(""))&&(groupOfStages.getCheckedRadioButtonId()!=-1)&&(groupOfStatus.getCheckedRadioButtonId()!=-1)){
-                    newTaskSaveButton.setEnabled(false);
-                    newTaskSaveButton.setTextColor(Color.GRAY);
-                }
-                else{
-                    newTaskSaveButton.setEnabled(true);
-                    newTaskSaveButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.black));
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
-        });
 
         final boolean finalIsUpdate = isUpdate;
         newTaskSaveButton.setOnClickListener(new View.OnClickListener() {
@@ -157,6 +133,9 @@ public class NewTaskAdd extends BottomSheetDialogFragment {
                 int status = 0;
                 int checkId1 = groupOfStatus.getCheckedRadioButtonId();
                 switch (checkId1){
+                    case -1:
+                        status=0;
+                        break;
                     case R.id.status_radio_1:
                         status = 1;
                         break;
@@ -183,8 +162,8 @@ public class NewTaskAdd extends BottomSheetDialogFragment {
                     task.setTask(text);
                     task.setDescription(description);
                     task.setStage(stage);
-                    task.setDone(0);
                     task.setStatus(status);
+                    task.setDone(0);
 
                     db.insertTask(task);
                 }

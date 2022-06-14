@@ -37,9 +37,10 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(mContext)
                 .inflate(R.layout.product_layout, parent, false);
-        return new ViewHolder(itemView);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
@@ -48,6 +49,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         holder.textDescription.setText(descriptionProduct[position]);
         holder.price.setText(String.valueOf(priceProduct[position]));
         holder.image.setImageResource(imagesProduct[position]);
+
     }
 
 
@@ -71,6 +73,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
             image = view.findViewById(R.id.image_of_product);
 
             buy = view.findViewById(R.id.buy);
+
 
 
 

@@ -38,19 +38,25 @@ public class AdapterOfToDo extends RecyclerView.Adapter<AdapterOfToDo.ViewHolder
     private OpenHelper db;
     private MainActivity activity;
     private Context mContext;
+    private static String r ="";
+    private RecyclerView recyclerView;
 
-    public AdapterOfToDo(OpenHelper db, MainActivity activity, Context context){
+    public AdapterOfToDo(OpenHelper db, MainActivity activity, Context context, RecyclerView recyclerView){
         this.db = db;
         this.activity = activity;
         this.mContext = context;
+        this.recyclerView = recyclerView;
     }
+
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder (ViewGroup parent, int ViewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
+        View view = LayoutInflater.from(mContext)
                 .inflate(R.layout.layout_of_task, parent, false);
-        return new ViewHolder(itemView);
+        ViewHolder viewHolder = new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override
@@ -62,37 +68,58 @@ public class AdapterOfToDo extends RecyclerView.Adapter<AdapterOfToDo.ViewHolder
         ColorStateList checkboxColorRed = ContextCompat.getColorStateList(getContext(), R.color.checkbox_theme_red);
         ColorStateList checkboxColorYellow = ContextCompat.getColorStateList(getContext(), R.color.checkbox_theme_yellow);
         ColorStateList checkboxColorGreen = ContextCompat.getColorStateList(getContext(), R.color.checkbox_theme_green);
+        ColorStateList checkboxColorOrange = ContextCompat.getColorStateList(getContext(), R.color.checkbox_theme_orange);
 
         final ModelOfToDo item = toDoList.get(position);
         holder.textOfTask.setText(item.getTask());
         holder.textOfDescription.setText(item.getDescription());
         holder.textOfStage.setText(item.getStage());
         switch(item.getStatus()){
+            case 0:
+                holder.checkBox.setButtonTintList(checkboxColorOrange);
+                break;
             case 1:
                 holder.checkBox.setButtonTintList(checkboxColorRed);
-                db.UpdateStatus(item.getId(), 1);
                 break;
             case 2:
                 holder.checkBox.setButtonTintList(checkboxColorYellow);
-                db.UpdateStatus(item.getId(), 2);
                 break;
             case 3:
                 holder.checkBox.setButtonTintList(checkboxColorGreen);
-                db.UpdateStatus(item.getId(), 3);
                 break;
 
         }
-        holder.checkBox.setChecked(toBoolean(item.getStatus()));
+        holder.checkBox.setChecked(toBoolean(item.getDone()));
+        if (item.getStage().equals("Done")){
+            holder.checkBox.setChecked(true);
+            db.UpdateDone(item.getId(), 1);
+
+        }
         holder.checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     db.UpdateDone(item.getId(), 1);
-                    coin = 1;
+                    r = item.getStage();
+                    db.updateStage(item.getId(), "Done");
 
                 } else {
                     db.UpdateDone(item.getId(), 0);
+                    db.updateStage(item.getId(), r);
+
+
                 }
+            }
+        });
+
+
+        holder.startTimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, TimerActivity.class);
+                intent.putExtra(TASK_TEXT, item.getTask());
+                activity.startActivity(intent);
+
             }
         });
     }
@@ -134,6 +161,7 @@ public class AdapterOfToDo extends RecyclerView.Adapter<AdapterOfToDo.ViewHolder
         fragment.show(activity.getSupportFragmentManager(), NewTaskAdd.TAG);
     }
 
+
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
 
@@ -158,14 +186,14 @@ public class AdapterOfToDo extends RecyclerView.Adapter<AdapterOfToDo.ViewHolder
             context = view.getContext();
             textOfStage = view.findViewById(R.id.stage_of_task);
 
-            startTimer.setOnClickListener(new View.OnClickListener() {
+         /*   startTimer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(view.getContext(), TimerActivity.class);
                     context.startActivity(intent);
                     intent.putExtra(TASK_TEXT, String.valueOf(textOfTask.getText() ));
                 }
-            });
+            }); */
 
 
 
