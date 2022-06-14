@@ -50,17 +50,17 @@
             android:text="This is a sample of description"
             android:textSize="15sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/start_timer"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="@drawable/circle_button"
-            android:drawableTop="@drawable/ic_play"
-            android:textColor="@color/black"
             app:backgroundTint="@color/orange"
-
+            app:icon="@drawable/ic_play"
+            app:iconGravity="top"
+            app:iconTint="@color/black"
             />
 
 

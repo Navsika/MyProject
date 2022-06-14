@@ -70,7 +70,6 @@ public class TimerActivity extends AppCompatActivity {
 
 
         taskTimer = findViewById(R.id.ito_prosto_text);
-        descriptionText = findViewById(R.id.description_text);
 
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
